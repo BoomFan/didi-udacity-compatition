@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+TF_LIB=$(python3 -c 'import tensorflow as tf; print(tf.sysconfig.get_lib())')
 TF_INC=$(python3 -c 'import tensorflow as tf; print(tf.sysconfig.get_include())')
 echo $TF_INC
 
