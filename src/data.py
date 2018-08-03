@@ -1,4 +1,10 @@
 from kitti_data import pykitti
+import sys
+try:
+    sys.path.remove('/opt/ros/kinetic/lib/python2.7/dist-packages')
+    sys.path.remove('/home/boom/segway_kinetic_ws/devel/lib/python2.7/dist-packages')
+except ValueError:
+    pass
 # from kitti_data.pykitti.tracklet import parseXML, TRUNC_IN_IMAGE, TRUNC_TRUNCATED
 # from kitti_data.draw import *
 from kitti_data.io import *
@@ -18,7 +24,7 @@ import ctypes
 from numba import jit
 from matplotlib import pyplot as plt
 
-import sys
+# import sys
 
 if config.cfg.USE_CLIDAR_TO_TOP:
     so_path = os.path.join(os.path.split(__file__)[0],
@@ -760,10 +766,12 @@ if __name__ == '__main__':
 
         frames_index=None  #None
     elif cfg.DATA_SETS_TYPE == 'kitti':
-        data_dir = {'2011_09_26': ['0001', '0017', '0029', '0052', '0070', '0002', '0018', '0035', '0056', '0079',
-                                   '0019', '0036', '0005', '0057', '0084', '0020', '0039', '0059', '0086', '0011',
-                                   '0023', '0046', '0060', '0091','0013', '0027', '0048', '0061', '0015', '0028',
-                                   '0051', '0064']}
+        # data_dir = {'2011_09_26': ['0001', '0017', '0029', '0052', '0070', '0002', '0018', '0035', '0056', '0079',
+        #                            '0019', '0036', '0005', '0057', '0084', '0020', '0039', '0059', '0086', '0011',
+        #                            '0023', '0046', '0060', '0091','0013', '0027', '0048', '0061', '0015', '0028',
+        #                            '0051', '0064']}
+
+        data_dir = {'2011_09_26': ['0001', '0005']}
 
         frames_index = None # [0,5,8,12,16,20,50]
     elif cfg.DATA_SETS_TYPE == 'test':
